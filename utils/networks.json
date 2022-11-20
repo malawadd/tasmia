@@ -1,0 +1,27 @@
+{
+  "selectedChain": "31415",
+  "1337": {
+    "chainId": "1337",
+    "chainName": "Localhost 8545",
+    "rpcUrls": [
+      "http://localhost:8545"
+    ],
+    "nativeCurrency": {
+      "symbol": "ETH"
+    },
+    "blockExplorerUrls": []
+  },
+  "31415": {
+    "chainId": "31415",
+    "chainName": "Filecoin Wallaby",
+    "rpcUrls": [
+      "https://wallaby.node.glif.io/rpc/v0"
+    ],
+    "nativeCurrency": {
+      "symbol": "tFIL"
+    },
+    "blockExplorerUrls": [
+      "https://explorer.glif.io/?network=wallaby/"
+    ]
+  }
+}
