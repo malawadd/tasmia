@@ -1,28 +1,29 @@
-<!-- eslint-disable quotes -->
-<!-- eslint-disable quotes -->
-<!-- eslint-disable quotes -->
-<!-- eslint-disable quotes -->
-<!-- eslint-disable vue/no-parsing-error -->
-<!-- eslint-disable no-trailing-spaces -->
-<!-- eslint-disable semi -->
-<!-- eslint-disable semi -->
 <template>
   <BaseView class="container">
     <template v-slot:main-content>
       <div>
-        <h3 class="title">Welcome to tasmia</h3>
+        <h3 class="title">Welcome to Tasmia</h3>
         <button type="button" class="btn btn-lg btn-outline-danger upload" id="upload" @click="upload">Upload Data</button>
         <input type="file" id="upload-file" ref="fileInput" class="fileCheck" @change="fileCheck">
         <a id="sampleCSV" href="/static/files/sample_trainset.csv" download>sample CSV</a>
       </div>
+      <br>
+      <div class="info">
+        <h5 class="subh">What is it?</h5>
+        Tasmia is a graphical tool for labeling time series data. Labeling is typically used to record interesting points in time series data. For example, if you had temperature data from a sensor mounted to a stove, you could label points  that constitute cooking events. Labels could be used as-is or as a training set for machine learning algorithms. For example, Tasmia could be used to build a training set for an algorithm that detects cooking events in temperature time series data.<br>
+        <img src="static/files/trainset.gif" alt="TRAINSET time series brushing and labeling animation" style="width:600px;height:391px;"><br><br>
         
+        <h5 class="subh">Where did it come from?</h5>
+        Tasmia was built for the  <a href="https://fevm.ethglobal.com/" target="_blank">hackfevm</a>. orgnized by ethglobal, the idea for it be a part of a data labeling dao. its a promising project.   
+      </div>
     </template>
   </BaseView>
 </template>
 
 <script>
-const { DateTime } = require('luxon')
-const strftime = require('strftime')
+const { DateTime } = require("luxon");
+const strftime = require('strftime');
+// const Web3Storage  = require('web3.storage');
 
 export default {
   name: 'index',
@@ -36,7 +37,7 @@ export default {
   },
   methods: {
     // push Labeler.vue invalid landing
-    error () {
+    error() {
       this.errorUpload = true;
       this.$router.push({
         name: 'labeler',
@@ -63,7 +64,9 @@ export default {
       window.onerror = (errorMsg, url, lineNumber) => {
         this.error();
       }
+      // var client  = new Web3Storage('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweEI3NTI4ZjQ3OUYyMzI1NjYxNjA5ZEQ3MGFkNzkwYWMyNjc5MDlDMmYiLCJpc3MiOiJ3ZWIzLXN0b3JhZ2UiLCJpYXQiOjE2Njg5MzkwOTk0NDUsIm5hbWUiOiJ0YXNtZWEifQ.xDXK74xPdt1OxE1NjQlLN0OLl9_VV5WI7BPTeuttwEc');
       var fileInput = document.getElementById("upload-file").files.item(0), fileText;
+      // const rootCid = client.put(fileInput.files);
       var filename = fileInput.name.split('.csv')[0];
       var id = 0;
       var reader = new FileReader();
@@ -135,8 +138,8 @@ export default {
 </script>
 
 <style scoped>
-#upload { margin-top: 20px; border-width: 3px; border-color: #7E4C64; color: #7E4C64; padding: 15px 60px; }
-#upload:hover {  background: #7E4C64; color: #f4f4f4; }
+#upload { margin-top: 20px; border-width: 3px; border-color: #2551c2; color: #2551c2; padding: 15px 60px; }
+#upload:hover {  background: #2551c2; color: #f4f4f4; }
 #upload-file { display: none; }
 .subh { font-weight: 900 !important; }
 #sampleCSV {

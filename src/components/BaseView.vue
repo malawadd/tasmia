@@ -17,7 +17,7 @@ export default {
 </script>
 
 <style scoped>
-.title { color: #7E4C64; font-weight: bold; }
+.title { color: #37ccb5; font-weight: bold; }
 .info { text-align: left; }
-.subh { color: #7E4C64; font-weight: 500; }
+.subh { color: #37ccb5; font-weight: 500; }
 </style>
